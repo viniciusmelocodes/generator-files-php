@@ -2,8 +2,7 @@
 try {
     $path = getcwd();
     $path .= '\HelloWorld';
-    $pathFileName = $path . '\index.php';
-    $message      = '';
+    $message = '';
 
     if (is_dir($path)) {
         array_map('unlink', glob($path . '\*.*'));
@@ -14,7 +13,7 @@ try {
     mkdir('HelloWorld');
     $content = "<?php\n";
     $content .= "echo 'Hello world! It is now " . date("h:i a e") . "';";
-    file_put_contents($pathFileName, $content);
+    file_put_contents($path . '\index.php', $content);
 
     $message .= "\nFile index.php generated with successful.";
 
